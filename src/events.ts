@@ -84,7 +84,7 @@ export function snapshotAssistantMessage(message: AssistantMessage): AssistantMe
 }
 
 /**
- * Pi-native partial content emitter (pi-cursor-sdk style).
+ * Pi-native partial content emitter.
  *
  * - Thinking and text are mutually exclusive open blocks.
  * - First text token closes thinking (`thinking_end`) so pi collapses reasoning

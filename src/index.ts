@@ -126,7 +126,7 @@ export default function (pi: ExtensionAPI) {
 		if (action === "mode") {
 			try {
 				notify(
-					`Integration mode: ${resolveIntegrationMode()}\nSet PI_GROK_SDK_MODE=acp|jsonl (acp is default; persistent ACP session like pi-cursor-sdk).\nAliases: PI_GROK_AGENT_MODE, PI_GROK_AGENT_CLI_MODE.`,
+					`Integration mode: ${resolveIntegrationMode()}\nSet PI_GROK_SDK_MODE=acp|jsonl (acp is default: long-lived Grok agent session).\nAliases: PI_GROK_AGENT_MODE, PI_GROK_AGENT_CLI_MODE.`,
 				);
 			} catch (err) {
 				notify(err instanceof Error ? err.message : String(err), "error");

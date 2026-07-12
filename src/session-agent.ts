@@ -1,10 +1,9 @@
 /**
  * Persistent Grok ACP agent pool, scoped to a pi session.
  *
- * Mirrors the pi-cursor-sdk session-agent idea: keep one long-lived
- * `agent agent stdio` process per (pi session, model, cwd, effort) so multi-turn
- * conversations reuse Grok's own history instead of replaying the full transcript
- * every turn.
+ * Keep one long-lived `agent agent stdio` process per
+ * (pi session, model, cwd, effort) so multi-turn conversations reuse Grok's
+ * own history instead of replaying the full transcript every turn.
  */
 
 import { resolveGrokBinary } from "./binary.js";
