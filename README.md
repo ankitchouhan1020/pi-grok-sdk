@@ -23,17 +23,19 @@ If the binary is only under `~/.grok/bin`, put that on `PATH` or set `PI_GROK_SD
 
 ## Install
 
-From GitHub:
+```bash
+pi install npm:pi-grok-sdk
+```
+
+Alternatives:
 
 ```bash
 pi install https://github.com/ankitchouhan1020/pi-grok-sdk
+pi install /path/to/pi-grok-sdk   # local checkout
 ```
 
-From a local checkout:
-
 ```bash
-pi install /path/to/pi-grok-sdk
-pi remove /path/to/pi-grok-sdk   # uninstall
+pi remove npm:pi-grok-sdk
 ```
 
 ## Quick start
