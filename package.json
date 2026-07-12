@@ -1,7 +1,7 @@
 {
   "name": "pi-grok-sdk",
   "version": "0.2.0",
-  "description": "Pi provider extension that runs Grok through the local xAI agent CLI (ACP by default, streaming-json fallback), with persistent multi-turn sessions similar to pi-cursor-sdk.",
+  "description": "Use Grok Build inside pi via the local xAI agent CLI — real agent tools, multi-turn ACP sessions, and native thinking/text streaming.",
   "type": "module",
   "license": "MIT",
   "author": "Ankit Chouhan",

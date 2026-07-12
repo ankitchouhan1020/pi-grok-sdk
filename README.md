@@ -1,11 +1,10 @@
 # pi-grok-sdk
 
-Pi provider that runs **Grok through the local xAI agent CLI** (`agent` / `grok`), the same way [`pi-cursor-sdk`](https://github.com/fitchmultz/pi-cursor-sdk) runs Cursor.
+Use **Grok Build** inside [pi](https://github.com/badlogic/pi-mono) without giving up the agent that already knows your machine.
 
-- **pi** — model picker, thinking controls, sessions, native streaming UI  
-- **Grok CLI** — tools, skills, MCP, permissions, multi-turn agent loop  
+`pi-grok-sdk` wires pi to the local xAI **agent CLI** (`agent` / `grok`). You get pi’s model picker, sessions, and streaming UI; Grok keeps its tools, skills, MCP servers, permissions, and multi-turn loop. Inference is not a thin HTTP chat wrapper — it’s the real local agent runtime, streamed back as native pi events.
 
-Models look like `grok-sdk/grok-4.5` (live list from `agent models`).
+**Models:** `grok-sdk/grok-4.5` (and others from `agent models`)
 
 ## Requirements
 
@@ -19,7 +18,7 @@ agent --version
 agent models
 ```
 
-If the binary is only under `~/.grok/bin`, put that on `PATH` or set `PI_GROK_SDK_BIN`.
+If the binary only lives under `~/.grok/bin`, add it to `PATH` or set `PI_GROK_SDK_BIN`.
 
 ## Install
 
@@ -87,15 +86,15 @@ pi  ──streamSimple──►  pi-grok-sdk
                           └─ jsonl          one-shot --single streaming-json
 ```
 
-**ACP (default)** — spawns `agent agent --no-leader --always-approve … stdio`, speaks ACP JSON-RPC, and reuses one process per pi session + model + cwd + effort. Follow-up turns send only new user content so Grok keeps its own history and tools.
+**ACP (default)** keeps a long-lived Grok process per pi session (model + cwd + effort). Turns speak ACP over stdio; later messages only send new user content so Grok retains history and tools.
 
-**JSONL** — opt-in one-shot path for debugging:
+**JSONL** is a one-shot fallback for debugging:
 
 ```bash
 PI_GROK_SDK_MODE=jsonl pi --model grok-sdk/grok-4.5 -p "…"
 ```
 
-Streaming matches native pi: token deltas, thinking closed before the answer, immutable event snapshots, and yields so the TUI can paint mid-stream.
+Streaming is pi-native: token deltas, thinking closed before the answer, and event-loop yields so the TUI can paint mid-stream.
 
 ## Config
 
@@ -109,7 +108,7 @@ Aliases still work: `PI_GROK_AGENT_MODE`, `PI_GROK_AGENT_BIN`, etc.
 
 Binary lookup: env → `PATH` (`agent`, `grok`) → `~/.grok/bin`.
 
-Pi `--thinking` maps to Grok `--reasoning-effort` (`off`/`minimal`/`low`/`medium`/`high`/`xhigh`/`max`).
+Pi `--thinking` maps to Grok `--reasoning-effort` (`off` / `minimal` / `low` / `medium` / `high` / `xhigh` / `max`).
 
 ## Compat
 
@@ -119,7 +118,7 @@ Pi `--thinking` maps to Grok `--reasoning-effort` (`off`/`minimal`/`low`/`medium
 
 ## Not in scope
 
-- Pi tools are **not** bridged into Grok (Grok runs its own tools)
+- Pi tools are not bridged into Grok (Grok runs its own tools)
 - Not an xAI HTTP / OpenAI-compatible API
 - No image input yet
 
