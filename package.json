@@ -1,6 +1,6 @@
 {
   "name": "pi-grok-sdk",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Use Grok Build inside pi via the local xAI agent CLI — real agent tools, multi-turn ACP sessions, and native thinking/text streaming.",
   "type": "module",
   "license": "MIT",

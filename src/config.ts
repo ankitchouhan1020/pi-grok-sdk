@@ -7,7 +7,7 @@ export const API = "grok-sdk";
 export const LEGACY_PROVIDER = "grok-agent-cli";
 export const DEFAULT_MODEL_ID = "grok-4.5";
 export const CLIENT_NAME = "pi-grok-sdk";
-export const CLIENT_VERSION = "0.2.0";
+export const CLIENT_VERSION = "0.2.1";
 
 /** Map pi thinking levels onto Grok `--reasoning-effort` values. */
 export const THINKING_LEVEL_MAP = {
