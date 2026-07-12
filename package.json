@@ -4,7 +4,11 @@
   "description": "Use Grok Build inside pi via the local xAI agent CLI — real agent tools, multi-turn ACP sessions, and native thinking/text streaming.",
   "type": "module",
   "license": "MIT",
-  "author": "Ankit Chouhan",
+  "author": "Ankit Chouhan (https://github.com/ankitchouhan1020)",
+  "main": "./src/index.ts",
+  "exports": {
+    ".": "./src/index.ts"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ankitchouhan1020/pi-grok-sdk.git"
@@ -15,12 +19,15 @@
   "homepage": "https://github.com/ankitchouhan1020/pi-grok-sdk#readme",
   "keywords": [
     "pi-package",
+    "pi",
     "pi-extension",
     "grok",
     "xai",
+    "grok-build",
     "agent",
     "acp",
-    "sdk"
+    "sdk",
+    "extension"
   ],
   "engines": {
     "node": ">=22.19.0"
@@ -28,8 +35,12 @@
   "files": [
     "src",
     "README.md",
-    "LICENSE"
+    "LICENSE",
+    "package.json"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "pi": {
     "extensions": [
       "./src/index.ts"
